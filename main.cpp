@@ -16,12 +16,12 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of all of the primitives available in C++ (excluding wchar_t) here: 
  
- 
- 
- 
- 
- 
- 
+ int
+ float
+ char
+ bool
+ double
+ void
  
  
  
@@ -57,9 +57,27 @@ void variableDeclarations()
     //example:
     int number = 2; //declaration of a primitive named 'number' with an initial value of '2'
     
+    int vol1 = 3;
+    int vol2 = 7;
+    int vol3 = 9;
+
+    float dep1 = 3.4f;
+    float dep2 = 1.3f;
+    float dep3 = 9.8f;
+
+    bool audioIn = true;
+    bool appOn = false;
+    bool midiThru = false;
+
+    char name = 'x';
+    char boot = 'y';
+    char swap = 'z';
+
+    double dot = 3.334;
+    double tail = 4.67;
+    double mop = -1.23; 
     
-    
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, vol1, vol2, vol3, dep1, dep2, dep3, audioIn, appOn, midiThru, name, boot, swap, dot, tail, mop); //passing each variable declared to the ignoreUnused() function
 }
 /*
  10 functions
@@ -74,43 +92,81 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-
+void rotateKnob (int currentPos = 1, int endPos = 5)
+{
+    ignoreUnused(currentPos, endPos);
+} 
 /*
  2)
  */
-
+bool isWorkOver (float endTime, float currentTime)
+{
+    ignoreUnused(endTime, currentTime);
+    return {};
+}
 /*
  3)
  */
-
+int numPondAnimals (int ducks, int frogs, int fish, int newts)
+{
+    ignoreUnused(ducks, frogs, fish, newts);
+    return {};
+}
 /*
  4)
  */
-
+double gainDifference (double inputGain,double outputGain)
+{
+    ignoreUnused(inputGain, outputGain);
+    return {};
+}
 /*
  5)
  */
-
+char capitalCity (char country)
+{
+    ignoreUnused(country);
+    return {};
+}
 /*
  6)
  */
-
+bool turnPage (int wordPos, int wordTotal)
+{
+    ignoreUnused(wordPos, wordTotal);
+    return {};
+}
 /*
  7)
  */
-
+float teaBrewTime (char type, char origin, bool isLoose = false)
+{
+    ignoreUnused(type, origin, isLoose);
+    return {};
+}
 /*
  8)
  */
-
+int numOutputs (char synthType, bool isOn = true)
+{
+    ignoreUnused(synthType, isOn);
+    return {};
+}
 /*
  9)
  */
-
+int numDaysHoliday (int numDaysGiven = 29, bool daysTaken = true,int numDaysTaken = 7 )
+{
+    ignoreUnused(numDaysGiven, daysTaken, numDaysTaken);
+    return {};
+}
 /*
  10)
  */
-
+void bakeCake (char cakeType, double amntFlour, float amntSuger, float amntButter, float bakeTime, bool risen = true)
+{
+    ignoreUnused(cakeType, amntFlour, amntSuger, amntButter, bakeTime, risen);
+}  
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -131,27 +187,27 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    rotateKnob(1, 5);
     //2)
-    
+    auto yesWorkOver = isWorkOver (17.f, 17.34f);
     //3)
-    
+    auto totalPondAnimals = numPondAnimals(4, 7, 10, 1);
     //4)
-    
+    auto volumeChange = gainDifference(-3.56, 0.65);
     //5)
-    
+    auto genGeog = capitalCity('u');
     //6)
-    
+    auto reading = turnPage(56, 112);
     //7)
-    
+    auto niceCuppa = teaBrewTime('x', 'i', false);
     //8)
-    
+    auto limitOutputs = numOutputs('m', true);
     //9)
-    
+    auto bookHoliday = numDaysHoliday(29, true, 7);
     //10)
+    bakeCake('c', 50.75, 10.2f, 15.5f, 1.15f, true);
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, yesWorkOver, totalPondAnimals, volumeChange, genGeog, reading,niceCuppa, limitOutputs, bookHoliday);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
